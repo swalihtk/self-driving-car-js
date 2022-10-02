@@ -23,6 +23,7 @@ class Car {
             this.height
         );
         ctx.fill();
+        ctx.restore();
     }
     update() {
         if (this.controller.forward) {
@@ -33,10 +34,10 @@ class Car {
         }
 
         if (this.controller.left) {
-            this.angle += 0.1;
+            this.angle += 0.01;
         }
         if (this.controller.right) {
-            this.angle -= 0.1;
+            this.angle -= 0.01;
         }
 
         if (this.speed > this.maxSpeed) {
@@ -55,5 +56,6 @@ class Car {
 
         this.x-=Math.sin(this.angle)*this.speed;
         this.y-=Math.cos(this.angle)*this.speed;
+
     }
 }
